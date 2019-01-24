@@ -43,15 +43,16 @@ void intvector::del_element(int num)
         int lastindex=length-1;
         int temp;
         int count=0;
-        for(int i=0;i<length;i++)
+        for(int i=0;i<lastindex;i++)
         {
-          if (data[i]==num){
-              count++;
-              temp=data[i];
-              data[i]=data[lastindex];
-              data[lastindex]=temp;
-              lastindex--;
-          }
+            if (data[i] == num)
+            {
+                count++;
+                temp = data[i];
+                data[i]         = data[lastindex];
+                data[lastindex] = temp;
+                lastindex--;
+            }
         }
         if (count>0)
         {
@@ -124,10 +125,10 @@ int main()
                     v.print_all();
                     break;
                 case 's':
-                    cout<<"size of array is "<<v.getsize();
+                    cout<<"size of array is "<<v.getsize()<<endl;
                     break;
                 case 'd':
-                    cout<<"Enter the number the delete"<<endl;
+                    cout<<"Enter the number to delete"<<endl;
                     cin>>num;
                     v.del_element(num);
                     break;
